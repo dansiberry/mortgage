@@ -46,6 +46,7 @@ export default class Mortgage {
     }
 
     validateInputs(principal, years, interestRate) {
+        // Validate all inputs are integers
         if (
             !Number.isInteger(principal) ||
             !Number.isInteger(years) ||
@@ -53,10 +54,13 @@ export default class Mortgage {
         ) {
             throw new Error('All inputs must be integers');
         } else if (principal < 1) {
+            // Validate principal is positive integer
             throw new Error('Principal must be a positive integer');
         } else if (years < 1) {
+            // Validate mortgage term is positive integer
             throw new Error('Mortgage term must be a positive integer');
         } else if (interestRate < 0 || interestRate > 100) {
+            // Validate interest rate is positive integer
             throw new Error('Interest rate must be an integer between 0 and 100');
         }
     }
