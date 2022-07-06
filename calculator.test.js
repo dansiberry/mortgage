@@ -1,10 +1,20 @@
 import Calculator from './calculator';
 
 // Test that it should throw an error is inputs are not all integers
-it('Errors when input is invalid', () => {
+it('Errors when input is wrong type', () => {
     const principal = 400000;
     const term = '40';
     const interest = 5;
+    expect(() => {
+        new Calculator(principal, term, interest);
+    }).toThrow(Error);
+});
+
+// Test that it should throw an error is inputs are not positive integers
+it('Errors when input is wrong type', () => {
+    const principal = 400000;
+    const term = 30;
+    const interest = -5;
     expect(() => {
         new Calculator(principal, term, interest);
     }).toThrow(Error);
